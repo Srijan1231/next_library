@@ -1,10 +1,6 @@
 'use client'
 import AuthPage from "@/components/auth/AuthPage";
-
-
- 
 import { zodResolver } from "@hookform/resolvers/zod"
-
 import * as z from "zod"
  
 import { Button } from "@/components/ui/button"
@@ -23,7 +19,9 @@ const formSchema = z.object({
   email: z.string().email().min(2, {
     message: "Email must be at least 2 characters.",
   }),
-  password:z.string()
+  password:z.string().min(8,{
+    message:'Password must be at 8 characters.'
+  })
 })
 import { signIn } from "next-auth/react";
 
@@ -34,6 +32,7 @@ import toast from "react-hot-toast";
 
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa6";
+
 export default function Login() {
     const router = useRouter()
     const form = useForm<z.infer<typeof formSchema>>({
@@ -55,11 +54,17 @@ export default function Login() {
       
     const authenticationContent = (<>
     <div className="w-full lg:w-1/2 mb-2 lg:mb-0">
-<Button  className="w-full flex justify-center items-center gap-2 bg-white text-sm text-gray-600 p-2 rounded-md hover:bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-200 transition-colors duration-300 cursor-pointer">
+<Button onClick={() => {
+          signIn("google");
+        }}
+         className="w-full flex justify-center items-center gap-2 bg-white text-sm text-gray-600 p-2 rounded-md hover:bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-200 transition-colors duration-300 cursor-pointer">
 <FcGoogle />Sign In with Google </Button>
 </div>
 <div className="w-full lg:w-1/2 ml-0 lg:ml-2">
-<Button  className="w-full flex justify-center items-center gap-2 bg-white text-sm text-gray-600 p-2 rounded-md hover:bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-200 transition-colors duration-300 cursor-pointer">
+<Button  onClick={() => {
+          signIn("github");
+        }}
+className="w-full flex justify-center items-center gap-2 bg-white text-sm text-gray-600 p-2 rounded-md hover:bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-200 transition-colors duration-300 cursor-pointer">
 <FaGithub /> Sign In with Github </Button>
 </div>
     </>)
@@ -95,13 +100,13 @@ export default function Login() {
             </FormItem>
           )}
         />
-        <Button type="submit">Submit</Button>
+        <Button type="submit">Sign In</Button>
       </form>
     </Form>
     </>
     )
     const footerContent = (
-        <p>Already have an account? <Link href="#" className="text-black hover:underline">Login here</Link>
+        <p>Needs an account? <Link href="/register" className="text-black hover:underline">Register here</Link>
 </p>
     )
     return(<AuthPage heading="Sign In" subheading="Welcome back"  authentication={authenticationContent} body={bodyContent} footer={footerContent}/>)

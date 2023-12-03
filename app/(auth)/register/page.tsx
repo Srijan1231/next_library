@@ -31,6 +31,8 @@ import Link from "next/link";
 import {  useRouter } from "next/navigation";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import toast from "react-hot-toast";
+import { FcGoogle } from "react-icons/fc";
+import { FaGithub } from "react-icons/fa6";
 
 export default function SignUp() {
     const router = useRouter()
@@ -53,12 +55,16 @@ export default function SignUp() {
       
     const authenticationContent = (<>
     <div className="w-full lg:w-1/2 mb-2 lg:mb-0">
-<Button  className="w-full flex justify-center items-center gap-2 bg-white text-sm text-gray-600 p-2 rounded-md hover:bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-200 transition-colors duration-300 cursor-pointer">
-   Sign Up with Google </Button>
+<Button  onClick={() => {
+          signIn("google");
+        }}className="w-full flex justify-center items-center gap-2 bg-white text-sm text-gray-600 p-2 rounded-md hover:bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-200 transition-colors duration-300 cursor-pointer">
+<FcGoogle />Sign Up with Google </Button>
 </div>
 <div className="w-full lg:w-1/2 ml-0 lg:ml-2">
-<Button  className="w-full flex justify-center items-center gap-2 bg-white text-sm text-gray-600 p-2 rounded-md hover:bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-200 transition-colors duration-300 cursor-pointer">
-  Sign Up with Github </Button>
+<Button onClick={() => {
+          signIn("github");
+        }} className="w-full flex justify-center items-center gap-2 bg-white text-sm text-gray-600 p-2 rounded-md hover:bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-200 transition-colors duration-300 cursor-pointer">
+<FaGithub /> Sign Up with Github </Button>
 </div>
     </>)
     const bodyContent = (
@@ -93,16 +99,16 @@ export default function SignUp() {
             </FormItem>
           )}
         />
-        <Button type="submit">Submit</Button>
+        <Button type="submit">Sign Up</Button>
       </form>
     </Form>
     </>
     )
     const footerContent = (
-        <p>Already have an account? <Link href="#" className="text-black hover:underline">Login here</Link>
+        <p>Already have an account? <Link href="/login" className="text-black hover:underline">Login here</Link>
 </p>
     )
-    return(<AuthPage heading="Sign In" subheading="Welcome back"  authentication={authenticationContent} body={bodyContent} footer={footerContent}/>)
+    return(<AuthPage heading="Sign Up" subheading="Please enter all your details"  authentication={authenticationContent} body={bodyContent} footer={footerContent}/>)
 }
 
 
