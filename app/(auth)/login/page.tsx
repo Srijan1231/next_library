@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button"
 import {
   Form,
   FormControl,
-  FormDescription,
+  
   FormField,
   FormItem,
   FormLabel,
@@ -79,7 +79,7 @@ className="w-full flex justify-center items-center gap-2 bg-white text-sm text-g
             <FormItem>
               <FormLabel>Email</FormLabel>
               <FormControl>
-                <Input placeholder="Enter your email" {...field} />
+                <Input type="email"placeholder="Enter your email" {...field} />
               </FormControl>
              
               <FormMessage />
@@ -93,7 +93,7 @@ className="w-full flex justify-center items-center gap-2 bg-white text-sm text-g
             <FormItem>
               <FormLabel>Password</FormLabel>
               <FormControl>
-                <Input placeholder="Enter your Password" {...field} />
+                <Input type="password" placeholder="Enter your Password" {...field} />
               </FormControl>
               
               <FormMessage />

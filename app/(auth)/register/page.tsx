@@ -23,7 +23,9 @@ const formSchema = z.object({
   email: z.string().email().min(2, {
     message: "Email must be at least 2 characters.",
   }),
-  password:z.string()
+  password:z.string().min(8,{
+    message:'Password must be at 8 characters.'
+  })
 })
 import { signIn } from "next-auth/react";
 
@@ -78,7 +80,7 @@ export default function SignUp() {
             <FormItem>
               <FormLabel>Email</FormLabel>
               <FormControl>
-                <Input placeholder="Enter your email" {...field} />
+                <Input type="email"placeholder="Enter your email" {...field} />
               </FormControl>
              
               <FormMessage />
@@ -92,7 +94,7 @@ export default function SignUp() {
             <FormItem>
               <FormLabel>Password</FormLabel>
               <FormControl>
-                <Input placeholder="Enter your Password" {...field} />
+                <Input type="password" placeholder="Enter your Password" {...field} />
               </FormControl>
               
               <FormMessage />
