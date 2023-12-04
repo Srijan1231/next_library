@@ -19,9 +19,7 @@ const formSchema = z.object({
   email: z.string().email().min(2, {
     message: "Email must be at least 2 characters.",
   }),
-  password:z.string().min(8,{
-    message:'Password must be at 8 characters.'
-  })
+  password:z.string()
 })
 import { signIn } from "next-auth/react";
 
@@ -47,7 +45,21 @@ export default function Login() {
     function onSubmit(values: z.infer<typeof formSchema>) {
       // Do something with the form values.
       // ✅ This will be type-safe and validated.
-      console.log(values)
+      signIn("credentials", {
+        ...values,
+  
+        redirect: false,
+      }).then((callback) => {
+      
+        if (callback?.ok) {
+          toast.success("Logged In");
+          router.push('/');
+          
+        }
+        if (callback?.error) {
+          toast.error(callback.error);
+        }
+      });
     }
    
       

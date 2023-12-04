@@ -1,12 +1,8 @@
 'use client'
 import AuthPage from "@/components/auth/AuthPage";
-
-
- 
+import axios from "axios";
 import { zodResolver } from "@hookform/resolvers/zod"
-
 import * as z from "zod"
- 
 import { Button } from "@/components/ui/button"
 import {
   Form,
@@ -50,7 +46,13 @@ export default function SignUp() {
     function onSubmit(values: z.infer<typeof formSchema>) {
       // Do something with the form values.
       // ✅ This will be type-safe and validated.
-      console.log(values)
+      axios.post('/api/register',values).catch((error)=>{
+      toast.error(error.message)
+      }).finally(()=>{
+        router.back()
+      })
+
+      
     }
    
       
