@@ -1,6 +1,7 @@
-import AuthPage from "@/components/auth/AuthPage";
+'use client'
+import { Navigation } from "@/components/navbar/Navigation";
 
 
 export default function Home() {
-  return 
+  return <Navigation/>
 }

@@ -11,8 +11,8 @@ datasource db {
 }
 
 model User {
-  id String @id @default(auto()) @map("_id") @db.ObjectId
-
+  id             String    @id @default(auto()) @map("_id") @db.ObjectId
+  role           String?   @default("student")
   name           String?
   email          String?   @unique
   emailVerified  DateTime?
