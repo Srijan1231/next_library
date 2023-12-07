@@ -24,6 +24,17 @@ export function CommandMenu() {
     document.addEventListener("keydown", down);
     return () => document.removeEventListener("keydown", down);
   }, []);
+  React.useEffect(() => {
+    const click = (e: MouseEvent) => {
+      if (e.metaKey || e.ctrlKey) {
+        e.preventDefault();
+        setOpen((open) => !open);
+      }
+    };
+
+    document.addEventListener("click", click);
+    return () => document.removeEventListener("click", click);
+  }, []);
 
   return (
     <CommandDialog open={open} onOpenChange={setOpen}>
