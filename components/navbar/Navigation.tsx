@@ -1,8 +1,7 @@
 "use client";
 
 import * as React from "react";
-import Link from "next/link";
-// import { Icons } from "@/components/icons";
+
 import { cn } from "@/app/lib/utils";
 import logo from "@/app/asset/image/finallogo.png";
 import {
@@ -14,7 +13,7 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-import { books } from "@/app/lib/data";
+import { Kids, Books } from "@/app/lib/data";
 import Image from "next/image";
 
 export function Navigation() {
@@ -62,10 +61,10 @@ export function Navigation() {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger>Books & Media</NavigationMenuTrigger>
+          <NavigationMenuTrigger>Adult</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-              {books.map((book) => (
+              {Books.map((book) => (
                 <ListItem key={book.title} title={book.title} href={book.href}>
                   {book.description}
                 </ListItem>
@@ -74,12 +73,40 @@ export function Navigation() {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger>Clothing</NavigationMenuTrigger>
+          <NavigationMenuTrigger>Teenage</NavigationMenuTrigger>
           {/* <Link href="/docs" legacyBehavior passHref>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
               Documentation
             </NavigationMenuLink>
           </Link> */}
+
+          <NavigationMenuContent>
+            <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+              {Kids.map((kid) => (
+                <ListItem key={kid.title} title={kid.title} href={kid.href}>
+                  {kid.description}
+                </ListItem>
+              ))}
+            </ul>
+          </NavigationMenuContent>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <NavigationMenuTrigger>Kids</NavigationMenuTrigger>
+          {/* <Link href="/docs" legacyBehavior passHref>
+            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+              Documentation
+            </NavigationMenuLink>
+          </Link> */}
+
+          <NavigationMenuContent>
+            <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+              {Kids.map((kid) => (
+                <ListItem key={kid.title} title={kid.title} href={kid.href}>
+                  {kid.description}
+                </ListItem>
+              ))}
+            </ul>
+          </NavigationMenuContent>
         </NavigationMenuItem>
       </NavigationMenuList>
     </NavigationMenu>
