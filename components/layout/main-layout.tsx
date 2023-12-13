@@ -5,10 +5,11 @@ import { Navigation } from "@/components/navbar/Navigation";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import logo from "@/app/asset/image/finallogo.png";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+
 import Link from "next/link";
-import { User } from "@prisma/client";
+
 import { SafeUser } from "@/app/types";
+import UserMenu from "../UserMenu/UserMenu";
 
 interface HeaderProps {
   children: React.ReactNode;
@@ -43,12 +44,7 @@ export const Layout = (props: HeaderProps) => {
               <CommandMenu />
             </div>
             <div className="flex gap-2">
-              <Avatar>
-                <AvatarImage src={image} alt="@shadcn" />
-                <AvatarFallback>
-                  {props.currentUser?.name?.slice(0, 1).toUpperCase()}
-                </AvatarFallback>
-              </Avatar>
+              <UserMenu currentUser={props.currentUser} />
             </div>
           </div>
         )}
