@@ -69,7 +69,7 @@ export default function Login() {
           className="w-full flex justify-center items-center gap-2 bg-white text-sm text-gray-600 p-2 rounded-md hover:bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-200 transition-colors duration-300 cursor-pointer"
         >
           <FcGoogle />
-          Sign In with Google{" "}
+          Sign In with Google
         </Button>
       </div>
       <div className="w-full lg:w-1/2 ml-0 lg:ml-2">
@@ -79,7 +79,7 @@ export default function Login() {
           }}
           className="w-full flex justify-center items-center gap-2 bg-white text-sm text-gray-600 p-2 rounded-md hover:bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-200 transition-colors duration-300 cursor-pointer"
         >
-          <FaGithub /> Sign In with Github{" "}
+          <FaGithub /> Sign In with Github
         </Button>
       </div>
     </>
