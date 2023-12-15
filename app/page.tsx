@@ -8,8 +8,8 @@ export default async function Home() {
   return (
     <div className="flex flex-col mx-3">
       <Layout currentUser={currentUser}>
-        <div className="flex flex-col items-center justify-center w-full h-full">
-          <div className="m-2 items-center justify-center text-center">
+        <div className="flex flex-col  items-center justify-center w-full h-full">
+          <div className="m-2 items-center justify-center text-center ">
             <h1 className="font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl uppercase font-black leading-relaxed">
               <span className="block">Libraries: where books open</span>
               <span className="block">
@@ -19,10 +19,9 @@ export default async function Home() {
                 journeys.
               </span>
             </h1>
-            <hr className="mt-2 border" />
           </div>
-          <div className="m-2 items-center justify-center">
-            <Image className="max-w-full h-auto" src={hero} alt="library_img" />
+          <div className="m-2 items-center justify-center ">
+            <Image className="max-w-full h-1/2" src={hero} alt="library_img" />
           </div>
         </div>
       </Layout>

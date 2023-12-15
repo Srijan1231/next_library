@@ -10,6 +10,7 @@ import Link from "next/link";
 
 import { SafeUser } from "@/app/types";
 import UserMenu from "../UserMenu/UserMenu";
+import SideMenu from "../Sidemenu/SideMenu";
 
 interface HeaderProps {
   children: React.ReactNode;
@@ -19,8 +20,8 @@ export const Layout = (props: HeaderProps) => {
   const image = props.currentUser?.image;
   return (
     <>
-      <div className="flex justify-between items-center   h-full ">
-        <div className="flex items-center">
+      <div className=" hidden border-b-2 justify-between items-center h-full sm:hidden md:hidden lg:flex ">
+        <div className="flex items-center ">
           <Image src={logo} width={100} height={100} alt="logo" />
           <Navigation />
         </div>
@@ -46,7 +47,39 @@ export const Layout = (props: HeaderProps) => {
           </div>
         )}
       </div>
-      <div>{props.children}</div>
+      {
+        <div className=" flex justify-between items-center h-full sm:flex md:flex lg:hidden ">
+          <div>
+            <SideMenu />
+          </div>
+          {/* <div className="flex items-center ">
+            <Image src={logo} width={100} height={100} alt="logo" />
+            <Navigation />
+          </div>
+          {!props.currentUser ? (
+            <div className="flex gap-2">
+              <div>
+                <CommandMenu />
+              </div>
+              <div className="flex gap-2">
+                <Button asChild>
+                  <Link href="/login">Login</Link>
+                </Button>
+              </div>
+            </div>
+          ) : (
+            <div className="flex gap-2">
+              <div>
+                <CommandMenu />
+              </div>
+              <div className="flex gap-2">
+                <UserMenu currentUser={props.currentUser} />
+              </div>
+            </div>
+          )} */}
+        </div>
+      }
+      <div className="overflow-hidden">{props.children}</div>
     </>
   );
 };
