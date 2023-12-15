@@ -8,25 +8,79 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "../ui/sheet";
+import { AlignRight } from "lucide-react";
+import Image from "next/image";
+import logo from "@/app/asset/image/finallogo.png";
 import { Button } from "../ui/button";
-import { ChevronRight } from "lucide-react";
+import Link from "next/link";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "../ui/accordion";
+import { Books, Teenage } from "@/app/lib/data";
+import { Kids } from "@/app/lib/data";
+import { ScrollArea } from "../ui/scroll-area";
 
 const SideMenu = () => {
   return (
     <Sheet>
-      <SheetTrigger>
-        <span className=" p-4">
-          <ChevronRight />
-        </span>
+      <SheetTrigger asChild>
+        <Button variant={"outline"}>
+          <AlignRight />
+        </Button>
       </SheetTrigger>
-      <SheetContent>
-        <SheetHeader>
-          <SheetTitle>Are you sure absolutely sure?</SheetTitle>
-          <SheetDescription>
-            This action cannot be undone. This will permanently delete your
-            account and remove your data from our servers.
-          </SheetDescription>
-        </SheetHeader>
+
+      <SheetContent side={"left"}>
+        <ScrollArea className="h-full w-full ">
+          <SheetHeader>
+            <SheetTitle>
+              <Link href={"/"}>
+                <div className="flex items-center justify-center">
+                  <Image src={logo} width={100} height={100} alt="logo" />
+                  Library Management
+                </div>
+              </Link>
+            </SheetTitle>
+            <SheetDescription>
+              This action cannot be undone. This will permanently delete your
+              account and remove your data from our servers.
+            </SheetDescription>
+          </SheetHeader>
+
+          <Accordion
+            type="multiple"
+            defaultValue={["item-1", "item-2", "item-3"]}
+          >
+            <AccordionItem value="item-1">
+              <AccordionTrigger>Books</AccordionTrigger>
+              {Books.map((book) => (
+                <AccordionContent key={book.title}>
+                  <Link href={book.href}>{book.title}</Link>
+                </AccordionContent>
+              ))}
+            </AccordionItem>
+            <AccordionItem value="item-2">
+              <AccordionTrigger>Kids</AccordionTrigger>
+
+              {Kids.map((kid) => (
+                <AccordionContent key={kid.title}>
+                  <Link href={kid.href}>{kid.title}</Link>
+                </AccordionContent>
+              ))}
+            </AccordionItem>
+            <AccordionItem value="item-3">
+              <AccordionTrigger>Teenage</AccordionTrigger>
+
+              {Teenage.map((teen) => (
+                <AccordionContent key={teen.title}>
+                  <Link href={teen.href}>{teen.title}</Link>
+                </AccordionContent>
+              ))}
+            </AccordionItem>
+          </Accordion>
+        </ScrollArea>
       </SheetContent>
     </Sheet>
   );

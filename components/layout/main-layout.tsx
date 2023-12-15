@@ -48,10 +48,11 @@ export const Layout = (props: HeaderProps) => {
         )}
       </div>
       {
-        <div className=" flex justify-between items-center h-full sm:flex md:flex lg:hidden ">
-          <div>
-            <SideMenu />
-          </div>
+        <div className=" mt-2 flex justify-between items-center h-full sm:flex md:flex lg:hidden">
+          <SideMenu />
+          <Button asChild>
+            <Link href="/login">Login</Link>
+          </Button>
           {/* <div className="flex items-center ">
             <Image src={logo} width={100} height={100} alt="logo" />
             <Navigation />
