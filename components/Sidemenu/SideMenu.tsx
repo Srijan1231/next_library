@@ -43,9 +43,9 @@ const SideMenu = () => {
                 </div>
               </Link>
             </SheetTitle>
-            <SheetDescription>
-              This action cannot be undone. This will permanently delete your
-              account and remove your data from our servers.
+            <SheetDescription className="font-black">
+              LIBRARIES: WHERE BOOKS OPEN DOORS TO INFINITE WORLDS AND PAGES
+              UNFOLD JOURNEYS.
             </SheetDescription>
           </SheetHeader>
 
