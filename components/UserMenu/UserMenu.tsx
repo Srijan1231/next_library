@@ -11,6 +11,7 @@ import {
   MenubarTrigger,
 } from "../ui/menubar";
 import Image from "next/image";
+import defaultImg from "@/app/asset/image/defaultimg.png";
 interface UserMenuProps {
   currentUser?: SafeUser | null;
 }
@@ -20,12 +21,14 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
       <Menubar>
         <MenubarMenu>
           <MenubarTrigger>
-            <Image
-              src={currentUser?.image}
-              alt="userImage"
-              height={30}
-              width={30}
-            />
+            {currentUser?.image && (
+              <Image
+                src={currentUser?.image ?? defaultImg}
+                alt="userImage"
+                height={30}
+                width={30}
+              />
+            )}
           </MenubarTrigger>
           <MenubarContent>
             <MenubarItem inset>Profile</MenubarItem>
