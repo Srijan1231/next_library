@@ -39,8 +39,8 @@ export function Navigation() {
                     />
 
                     <p className="text-sm leading-tight text-muted-foreground">
-                      Beautifully designed components built with Radix UI and
-                      Tailwind CSS.
+                      &quot; Libraries: Where whispers of wisdom echo in the
+                      pages. &quot;
                     </p>
                   </a>
                 </NavigationMenuLink>

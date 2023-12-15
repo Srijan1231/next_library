@@ -30,11 +30,8 @@ export const Layout = (props: HeaderProps) => {
               <CommandMenu />
             </div>
             <div className="flex gap-2">
-              <Button asChild variant="outline">
-                <Link href="/login">Login</Link>
-              </Button>
               <Button asChild>
-                <Link href="/register">Register</Link>
+                <Link href="/login">Login</Link>
               </Button>
             </div>
           </div>
