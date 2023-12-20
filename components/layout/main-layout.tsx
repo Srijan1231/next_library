@@ -20,7 +20,7 @@ export const Layout = (props: HeaderProps) => {
   const image = props.currentUser?.image;
   return (
     <>
-      <div className=" hidden border-b-2 justify-between items-center h-full sm:hidden md:hidden lg:flex ">
+      <div className=" hidden border-b-2 justify-between items-center h-full sm:hidden md:flex lg:flex ">
         <div className="flex items-center ">
           <Image src={logo} width={100} height={100} alt="logo" />
           <Navigation />
@@ -48,7 +48,7 @@ export const Layout = (props: HeaderProps) => {
         )}
       </div>
       {
-        <div className=" mt-2 flex justify-between items-center h-full sm:flex md:flex lg:hidden">
+        <div className=" mt-2 flex justify-between items-center h-full sm:flex md:hidden lg:hidden">
           <SideMenu />
           {props.currentUser ? (
             <UserMenu currentUser={props.currentUser} />

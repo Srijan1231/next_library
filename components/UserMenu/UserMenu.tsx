@@ -21,14 +21,12 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
       <Menubar>
         <MenubarMenu>
           <MenubarTrigger>
-            {currentUser?.image && (
-              <Image
-                src={currentUser?.image ?? defaultImg}
-                alt="userImage"
-                height={30}
-                width={30}
-              />
-            )}
+            <Image
+              src={currentUser?.image ?? defaultImg}
+              alt="userImage"
+              height={30}
+              width={30}
+            />
           </MenubarTrigger>
           <MenubarContent>
             <MenubarItem inset>Profile</MenubarItem>

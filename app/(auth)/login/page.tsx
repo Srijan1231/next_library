@@ -46,8 +46,6 @@ export default function Login() {
     // ✅ This will be type-safe and validated.
     signIn("credentials", {
       ...values,
-
-      redirect: false,
     }).then((callback) => {
       if (callback?.ok) {
         toast.success("Logged In");
@@ -64,7 +62,7 @@ export default function Login() {
       <div className="w-full lg:w-1/2 mb-2 lg:mb-0">
         <Button
           onClick={() => {
-            signIn("google");
+            signIn("google", { callbackUrl: "/" });
           }}
           className="w-full flex justify-center items-center gap-2 bg-white text-sm text-gray-600 p-2 rounded-md hover:bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-200 transition-colors duration-300 cursor-pointer"
         >
@@ -75,7 +73,7 @@ export default function Login() {
       <div className="w-full lg:w-1/2 ml-0 lg:ml-2">
         <Button
           onClick={() => {
-            signIn("github");
+            signIn("github", { callbackUrl: "/" });
           }}
           className="w-full flex justify-center items-center gap-2 bg-white text-sm text-gray-600 p-2 rounded-md hover:bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-200 transition-colors duration-300 cursor-pointer"
         >
