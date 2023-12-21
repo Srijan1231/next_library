@@ -8,7 +8,7 @@ export default async function AdminLayout({
 }) {
   const currentUser = await getCurrentUser();
 
-  return currentUser && currentUser?.role === "student" ? (
+  return currentUser && currentUser?.role === "admin" ? (
     <div className="w-screen h-screen flex gap-2">
       <Sidebar currentUser={currentUser} />
       <main className="w-full h-screen">{children}</main>

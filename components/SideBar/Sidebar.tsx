@@ -8,6 +8,7 @@ import defaultImg from "@/app/asset/image/defaultimg.png";
 
 import {
   Dialog,
+  DialogClose,
   DialogContent,
   DialogDescription,
   DialogHeader,
@@ -26,35 +27,37 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
+import NewBook from "../AddBook/NewBook";
 
 interface SideBarProps {
   currentUser: SafeUser | null;
 }
 const Sidebar: React.FC<SideBarProps> = ({ currentUser }) => {
   return (
-    <div className="w-1/6  border p-3 flex flex-col justify-between">
+    <div className="w-1/6  border border-zinc-600 p-3 flex flex-col justify-between">
       <div>
         <div className="flex items-center ">
           <Image src={logo} alt="logo" width={100} height={100} />
         </div>
-        <hr />
+        <hr className="text-zinc-600" />
         <div className="flex  flex-col">
           {SidebarDataAdmin.map((admin) => (
             <MenuItem key={admin.title} title={admin.title} href={admin.href} />
           ))}
 
           <Dialog>
-            <DialogTrigger className="flex border rounded-full  w-full h-full justify-center p-4 mt-2 gap-2">
+            <DialogTrigger className="flex border border-zinc-600 rounded-full  w-full h-full justify-center p-4 mt-2 gap-2">
               <CopyPlus /> Add Books
             </DialogTrigger>
             <DialogContent>
-              <DialogHeader>
+              {/* <DialogHeader>
                 <DialogTitle>Are you sure absolutely sure?</DialogTitle>
                 <DialogDescription>
                   This action cannot be undone. This will permanently delete
                   your account and remove your data from our servers.
                 </DialogDescription>
-              </DialogHeader>
+              </DialogHeader> */}
+              <NewBook />
             </DialogContent>
           </Dialog>
         </div>
@@ -105,10 +108,10 @@ interface MenuItemProps {
 const MenuItem: React.FC<MenuItemProps> = ({ title, href }) => {
   return (
     <div>
-      <span className="select-none flex items-center px-4 py-[.775rem] cursor-pointer my-[.4rem] rounded-[.95rem]  hover:bg-zinc-200">
+      <span className="select-none flex items-center px-4 py-[.775rem] cursor-pointer my-[.4rem] rounded-[.95rem]  hover:bg-zinc-300">
         <Link
           href={href}
-          className="flex items-center flex-grow text-md dark:text-neutral-400/75 text-stone-500 hover:text-gray-900"
+          className="flex items-center flex-grow text-md  text-stone-500 hover:text-gray-900"
         >
           {title}
         </Link>
