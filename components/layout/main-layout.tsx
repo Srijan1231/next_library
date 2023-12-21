@@ -11,6 +11,7 @@ import Link from "next/link";
 import { SafeUser } from "@/app/types";
 import UserMenu from "../UserMenu/UserMenu";
 import SideMenu from "../Sidemenu/SideMenu";
+import AccordianMain from "../Accordian/AccordionMain";
 
 interface HeaderProps {
   children: React.ReactNode;
@@ -49,7 +50,9 @@ export const Layout = (props: HeaderProps) => {
       </div>
       {
         <div className=" mt-2 flex justify-between items-center h-full sm:flex md:hidden lg:hidden">
-          <SideMenu />
+          <SideMenu>
+            <AccordianMain />
+          </SideMenu>
           {props.currentUser ? (
             <UserMenu currentUser={props.currentUser} />
           ) : (
@@ -57,32 +60,6 @@ export const Layout = (props: HeaderProps) => {
               <Link href="/login">Login</Link>
             </Button>
           )}
-
-          {/* <div className="flex items-center ">
-            <Image src={logo} width={100} height={100} alt="logo" />
-            <Navigation />
-          </div>
-          {!props.currentUser ? (
-            <div className="flex gap-2">
-              <div>
-                <CommandMenu />
-              </div>
-              <div className="flex gap-2">
-                <Button asChild>
-                  <Link href="/login">Login</Link>
-                </Button>
-              </div>
-            </div>
-          ) : (
-            <div className="flex gap-2">
-              <div>
-                <CommandMenu />
-              </div>
-              <div className="flex gap-2">
-                <UserMenu currentUser={props.currentUser} />
-              </div>
-            </div>
-          )} */}
         </div>
       }
       <div className="overflow-hidden">{props.children}</div>

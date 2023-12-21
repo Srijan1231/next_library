@@ -1,4 +1,5 @@
 export const Books: { title: string; href: string; description: string; }[] = [
+
     {
         title: "All",
         href: "/docs/primitives/alert-dialog",
@@ -114,4 +115,26 @@ export const Teenage: { title: string; href: string; description: string; }[] = 
             "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
     },
 
+];
+export const SidebarDataAdmin = [
+    {
+        title: 'My Page',
+        href: '/library/user'
+    },
+    {
+        title: 'Audience',
+        href: '/admin/audience'
+    },
+    {
+        title: 'Community',
+        href: '/admin/community'
+    },
+    {
+        title: 'Insights',
+        href: '/admin/insights'
+    },
+    {
+        title: 'Payouts',
+        href: '/admin/payouts'
+    },
 ];
