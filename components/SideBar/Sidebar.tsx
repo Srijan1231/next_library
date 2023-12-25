@@ -16,7 +16,7 @@ import {
   DialogTrigger,
 } from "../ui/dialog";
 import { CopyPlus, GripVertical } from "lucide-react";
-import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
+
 import { SafeUser } from "@/app/types";
 import { signOut } from "next-auth/react";
 import {
@@ -50,13 +50,6 @@ const Sidebar: React.FC<SideBarProps> = ({ currentUser }) => {
               <CopyPlus /> Add Books
             </DialogTrigger>
             <DialogContent>
-              {/* <DialogHeader>
-                <DialogTitle>Are you sure absolutely sure?</DialogTitle>
-                <DialogDescription>
-                  This action cannot be undone. This will permanently delete
-                  your account and remove your data from our servers.
-                </DialogDescription>
-              </DialogHeader> */}
               <NewBook />
             </DialogContent>
           </Dialog>

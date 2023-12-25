@@ -51,7 +51,7 @@ model Book {
 
   title       String
   description String
-  imageSrc    String
+  media       String[]
   createdAt   DateTime @default(now())
   category    String
   author      String
